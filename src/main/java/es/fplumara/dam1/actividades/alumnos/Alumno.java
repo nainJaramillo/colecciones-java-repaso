@@ -31,4 +31,19 @@ public class Alumno {
 
     // DEFINIR CUANDO DOS ALUMNOS SON IGUALES CON EQUALS
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Alumno otro = (Alumno) obj;
+        return dni != null && dni.trim().equalsIgnoreCase(otro.dni.trim());
+    }
+
+    @Override
+    public int hashCode() {
+        return dni == null ? 0 : dni.trim().toUpperCase().hashCode();
+    }
+
+
 }
